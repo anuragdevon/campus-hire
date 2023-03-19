@@ -19,8 +19,8 @@ from django.urls import path, include
 from placements.views import home_ping
 
 urlpatterns = [
-    path('', home_ping, name='home_ping'),
+    path("", home_ping, name="home_ping"),
     path("admin/", admin.site.urls),
-    path('api-auth/', include('rest_framework.urls')),
-    path('placements/', include('placements.urls')),
+    path("api-auth/", include("rest_framework.urls")),
+    path("placements/", include("placements.urls")),
 ]
