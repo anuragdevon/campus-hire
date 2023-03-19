@@ -1,7 +1,15 @@
+from django.http import HttpResponse
 from rest_framework import generics
+from datetime import datetime
+
 from .models import Student, Company, JobPosting, Placement
 from .serializers import StudentSerializer, CompanySerializer, JobPostingSerializer, PlacementSerializer
 
+
+def home_ping(request):
+    now = datetime.now()
+    html = "<html><body>It is now %s.</body></html>" % now
+    return HttpResponse(html)
 class StudentList(generics.ListCreateAPIView):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
