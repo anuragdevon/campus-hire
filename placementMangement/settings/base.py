@@ -6,6 +6,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = getenv("SECRET_KEY")
 
 INSTALLED_APPS = [
+    "placements.apps.PlacementsConfig",
+    
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
