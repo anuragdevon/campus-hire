@@ -16,4 +16,4 @@ DATABASES = {
     }
 }
 
-WSGI_APPLICATION = "placementMangement.wsgi.application"
+WSGI_APPLICATION = "placementManagement.wsgi.application"
