@@ -1,11 +1,19 @@
 from django.db import models
-
+from django.db.models.signals import pre_save, post_save
 
 class Student(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
     roll_number = models.CharField(max_length=20)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Available')
 
+    @classmethod
+    def get_placed_students(cls):
+        return cls.objects.filter(status='Placed')
+    
+    @classmethod
+    def get_available_students(cls):
+        return cls.objects.filter(status='Available')
 
 class Company(models.Model):
     name = models.CharField(max_length=100)
