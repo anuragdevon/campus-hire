@@ -1,10 +1,17 @@
 from django.db import models
 from django.db.models.signals import pre_save, post_save
 
+
 class Student(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
     roll_number = models.CharField(max_length=20)
+
+    STATUS_CHOICES = [
+        ('Available', 'available'),
+        ('Placed', 'placed'),
+    ]
+
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Available')
 
     @classmethod
@@ -25,6 +32,12 @@ class JobPosting(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     description = models.TextField()
+
+    STATUS_CHOICES = [
+        ('open', 'Open'),
+        ('closed', 'Closed'),
+    ]
+
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Open')
     qualifications = models.TextField()
 
