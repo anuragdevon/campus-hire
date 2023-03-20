@@ -9,6 +9,7 @@ from .views import (
     JobPostingDetail,
     PlacementList,
     PlacementDetail,
+    PlacementUpdate,
 )
 
 urlpatterns = [
@@ -21,4 +22,7 @@ urlpatterns = [
     path("placements/", PlacementList.as_view()),
     path("placements/int:pk/", PlacementDetail.as_view()),
     path("placements/create/", PlacementCreate.as_view()),
+    path('placements/<int:pk>/update/', PlacementUpdate.as_view()),
+    path('placements/<int:pk>/', PlacementDetail.as_view()),
+
 ]

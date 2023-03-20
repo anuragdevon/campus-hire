@@ -83,7 +83,8 @@ class JobPostingList(generics.ListAPIView):
 # -------------------------------------GET----------------------------------
 
 # --------------------------------------POST---------------------------------
-class PlacementCreate(generics.CreateAPIView):
+class PlacementHandler(generics.CreateAPIView):
+    queryset = Placement.objects.all()
     serializer_class = PlacementSerializer
 
     def create(self, request, *args, **kwargs):
@@ -107,6 +108,42 @@ class PlacementCreate(generics.CreateAPIView):
                 },
                 status=status.HTTP_400_BAD_REQUEST,
             )
+
+class PlacementUpdate(generics.UpdateAPIView):
+    queryset = Placement.objects.all()
+    serializer_class = PlacementSerializer
+
+    def update(self, request, *args, **kwargs):
+        instance = self.get_object()
+        student_data = request.data.pop('student')
+        job_posting_data = request.data.pop('job_posting')
+        student_serializer = StudentSerializer(instance.student, data=student_data)
+        job_posting_serializer = JobPostingSerializer(instance.job_posting, data=job_posting_data)
+        if student_serializer.is_valid() and job_posting_serializer.is_valid():
+            student = student_serializer.save()
+            job_posting = job_posting_serializer.save(company_id=job_posting_data['company'])
+            request.data['student'] = student.id
+            request.data['job_posting'] = job_posting.id
+            return super().update(request, *args, **kwargs)
+        else:
+            return Response({
+                'student': student_serializer.errors,
+                'job_posting': job_posting_serializer.errors
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+class PlacementDetail(generics.RetrieveAPIView):
+    queryset = Placement.objects.all()
+    serializer_class = PlacementSerializer
+
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance)
+        student_serializer = StudentSerializer(instance.student)
+        job_posting_serializer = JobPostingSerializer(instance.job_posting)
+        data = serializer.data
+        data['student'] = student_serializer.data
+        data['job_posting'] = job_posting_serializer.data
+        return Response(data)
 
 
 # --------------------------------------POST---------------------------------
