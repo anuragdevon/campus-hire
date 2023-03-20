@@ -25,7 +25,16 @@ class JobPosting(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     description = models.TextField()
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Open')
     qualifications = models.TextField()
+
+    @classmethod
+    def get_open_job_postings(cls):
+        return cls.objects.filter(status='Open')
+    
+    @classmethod
+    def get_closed_job_postings(cls):
+        return cls.objects.filter(status='Closed')
 
 
 class Placement(models.Model):
