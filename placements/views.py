@@ -83,7 +83,7 @@ class JobPostingList(generics.ListAPIView):
 # -------------------------------------GET----------------------------------
 
 # --------------------------------------POST---------------------------------
-class PlacementHandler(generics.CreateAPIView):
+class PlacementCreate(generics.CreateAPIView):
     queryset = Placement.objects.all()
     serializer_class = PlacementSerializer
 

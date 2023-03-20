@@ -23,8 +23,7 @@ class JobPosting(models.Model):
 class Placement(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     job_posting = models.ForeignKey(JobPosting, on_delete=models.CASCADE)
-    start_date = models.DateField()
-    end_date = models.DateField()
+    date = models.DateField()
     is_accepted = models.BooleanField(default=False)
     def __str__(self):
         return f"{self.student} - {self.job_posting} ({self.start_date} to {self.end_date})"
