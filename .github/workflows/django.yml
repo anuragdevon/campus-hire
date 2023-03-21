@@ -28,7 +28,7 @@ jobs:
       #  Setup Production Environment Variables
     - name: Export Environment variables
       run: |
-        export DJANGO_SETTINGS_MODULE=${{ secrets.API_KEY }}
+        export DJANGO_SETTINGS_MODULE=${{ secrets.DJANGO_SETTINGS_MODULE }}
         export SECRET_KEY=${{ secrets.SECRET_KEY }}
     - name: Run Tests
       run: |
