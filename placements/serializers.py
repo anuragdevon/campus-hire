@@ -9,6 +9,7 @@ class StudentSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(
         validators=[UniqueValidator(queryset=Student.objects.all())]
     )
+
     class Meta:
         model = Student
         exclude = ["password"]
@@ -18,10 +19,9 @@ class StudentSerializer(serializers.ModelSerializer):
 class JobPostingSerializer(serializers.ModelSerializer):
     def validate(self, data):
         if data["salary_min"] <= 0 or data["salary_max"] <= 0:
-            raise serializers.ValidationError(
-                "Salary range must be greater than 0."
-            )
+            raise serializers.ValidationError("Salary range must be greater than 0.")
         return data
+
     class Meta:
         model = JobPosting
         fields = "__all__"
@@ -29,9 +29,11 @@ class JobPostingSerializer(serializers.ModelSerializer):
 
 class CompanySerializer(serializers.ModelSerializer):
     job_postings = JobPostingSerializer(many=True, read_only=True)
+
     class Meta:
         model = Company
         fields = "__all__"
+
 
 class PlacementSerializer(serializers.ModelSerializer):
     class Meta:
