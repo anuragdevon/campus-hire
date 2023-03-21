@@ -1,0 +1,24 @@
+[
+    {
+      "model": "placements.jobposting",
+      "pk": 1,
+      "fields": {
+        "company": 1,
+        "title": "Software Engineer",
+        "description": "We are looking for a skilled software engineer to join our team.",
+        "status": "Open",
+        "qualifications": "Bachelor's degree in Computer Science or equivalent."
+      }
+    },
+    {
+      "model": "placements.jobposting",
+      "pk": 2,
+      "fields": {
+        "company": 2,
+        "title": "Marketing Manager",
+        "description": "We are seeking a Marketing Manager to help grow our business.",
+        "status": "Closed",
+        "qualifications": "Bachelor's degree in Marketing or equivalent."
+      }
+    }
+  ]

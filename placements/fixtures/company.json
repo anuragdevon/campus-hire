@@ -1,0 +1,20 @@
+[
+    {
+        "model": "placements.company",
+        "pk": 1,
+        "fields": {
+            "name": "Acme Inc.",
+            "website": "https://www.acme.com",
+            "email": "info@acme.com"
+        }
+    },
+    {
+        "model": "placements.company",
+        "pk": 2,
+        "fields": {
+            "name": "Widgets Ltd.",
+            "website": "https://www.widgets.com",
+            "email": "info@widgets.com"
+        }
+    }
+]

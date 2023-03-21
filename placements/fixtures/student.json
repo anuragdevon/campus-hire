@@ -1,0 +1,22 @@
+[
+    {
+        "model": "placements.student",
+        "pk": 1,
+        "fields": {
+            "name": "John Smith",
+            "email": "john@example.com",
+            "roll_number": "001",
+            "status": "Available"
+        }
+    },
+    {
+        "model": "placements.student",
+        "pk": 2,
+        "fields": {
+            "name": "Jane Doe",
+            "email": "jane@example.com",
+            "roll_number": "002",
+            "status": "Placed"
+        }
+    }
+]

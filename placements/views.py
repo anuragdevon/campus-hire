@@ -4,6 +4,7 @@ from datetime import datetime
 from rest_framework.pagination import PageNumberPagination
 from rest_framework import filters
 from rest_framework.response import Response
+from rest_framework import status
 
 from .models import Student, Company, JobPosting, Placement
 from .serializers import (

@@ -1,0 +1,22 @@
+[
+    {
+        "model": "placements.placement",
+        "pk": 1,
+        "fields": {
+            "student": 1,
+            "job_posting": 1,
+            "date": "2022-01-01",
+            "is_accepted": true
+        }
+    },
+    {
+        "model": "placements.placement",
+        "pk": 2,
+        "fields": {
+            "student": 2,
+            "job_posting": 2,
+            "date": "2022-02-01",
+            "is_accepted": false
+        }
+    }
+]
