@@ -41,7 +41,6 @@ class PlacementSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-
 # Check delete options
 
 # Student, Job posting cannot be post, companies can be post
