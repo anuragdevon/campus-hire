@@ -20,7 +20,6 @@ urlpatterns = [
     path("jobpostings/", JobPostingList.as_view()),
     path("jobpostings/<int:pk>/", JobPostingDetail.as_view()),
     path("placements/", PlacementList.as_view()),
-    path("placements/int:pk/", PlacementDetail.as_view()),
     path("placements/create/", PlacementCreate.as_view()),
     path('placements/<int:pk>/update/', PlacementUpdate.as_view()),
     path('placements/<int:pk>/', PlacementDetail.as_view()),

@@ -11,7 +11,7 @@ class StudentSerializer(serializers.ModelSerializer):
     )
     class Meta:
         model = Student
-        exclude = ["password"]
+        # exclude = ["password"]
         fields = "__all__"
 
 
@@ -37,3 +37,11 @@ class PlacementSerializer(serializers.ModelSerializer):
     class Meta:
         model = Placement
         fields = "__all__"
+
+
+
+# Check delete options
+
+# Student, Job posting cannot be post, companies can be post
+# Similiar to companies, remove placements, and add it directly in get
+# Try to update directly on detail view similiar to companies

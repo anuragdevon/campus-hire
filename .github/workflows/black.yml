@@ -16,10 +16,10 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          title: "Format Python code with psf/black push"
-          commit-message: ":art: Format Python code with psf/black"
+          title: "format code using black - bot"
+          commit-message: "format code using black - bot"
           body: |
             There appear to be some python formatting errors in ${{ github.sha }}. This pull request
-            uses the [psf/black](https://github.com/psf/black) formatter to fix these issues.
+            applies black formatting and fixes it to main branch.
           base: ${{ github.head_ref }} # Creates pull request onto pull request or commit branch
           branch: actions/black
