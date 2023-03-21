@@ -29,8 +29,8 @@ jobs:
     - name: Export Environment variables
       run: |
         touch .env
-        export DJANGO_SETTINGS_MODULE=${{ secrets.DJANGO_SETTINGS_MODULE }} >> .env
-        export SECRET_KEY=${{ secrets.SECRET_KEY }} >> .env
+        echo DJANGO_SETTINGS_MODULE=${{ secrets.DJANGO_SETTINGS_MODULE }} >> .env
+        echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> .env
     - name: Run Tests
       run: |
         python manage.py test
